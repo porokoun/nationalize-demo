@@ -1,0 +1,19 @@
+input {
+  padding: 5px;
+  margin: 2px;
+  width: 150px;
+}
+
+table {
+  border-collapse: collapse;
+  text-align: left;
+}
+
+td, th {
+  padding: 10px;
+}
+
+button {
+  padding: 5px 10px;
+  margin-left: 4px;
+}

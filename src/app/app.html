@@ -1,0 +1,44 @@
+<div style="text-align:center">
+  <h2>Nationality Predictor</h2>
+
+  <!-- Show Table Button -->
+  <button (click)="showData()">Show Table</button>
+
+  <!-- Only show below if table is visible -->
+  <div *ngIf="showTable">
+    <!-- Add New Person -->
+    <div style="margin: 20px 0;">
+      <input [(ngModel)]="newName" placeholder="Enter name" required />
+      <input [(ngModel)]="newAge" type="number" placeholder="Enter age" required />
+      <button (click)="addPerson()">Add Person</button>
+    </div>
+
+    <!-- Data Table -->
+    <table border="1" style="margin: 0 auto; width: 70%;">
+    <thead>
+      <tr>
+        <th>No</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Nationality</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+      <tbody>
+        <tr *ngFor="let p of people">
+          <td>{{ p.no }}</td>
+          <td>
+            <input [(ngModel)]="p.name" (blur)="checkAndFetchNationality(p)" />
+          </td>
+          <td>
+            <input [(ngModel)]="p.age" type="number" (blur)="onAgeChange(p)" />
+          </td>
+          <td>{{ p.nationality || '-' }}</td>
+          <td>
+            <button (click)="deletePerson(p)">🗑 Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
